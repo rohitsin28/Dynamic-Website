@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/CSS/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Dynamic website</title>
+</head>
+
+<body>
+  {{>navbar data=details}}
+  {{>slider slides=slides}} 
+
+
+  <section class="container my-5">
+    <h1 class="text-center mb-4">Registration Form</h1>
+    <form class="row g-3 needs-validation" action="/gallery_registration" method="post" novalidate>
+      <div class="col-md-6">
+        <label for="inputName" class="form-label">Name</label>
+        <input name="name" type="text" class="form-control" id="inputName" required>
+        <div class="invalid-feedback">Please enter your name</div>
+      </div>
+      <div class="col-md-6">
+        <label for="inputCourse" class="form-label">Course</label>
+        <input name="course" type="text" class="form-control" id="inputCourse" required>
+        <div class="invalid-feedback">Please enter your course</div>
+      </div>
+      <div class="col-md-6">
+        <label for="inputEmail" class="form-label">Email</label>
+        <input name="email" type="email" class="form-control" id="inputEmail" required>
+        <div class="invalid-feedback">Please enter your email</div>
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword" class="form-label">Password</label>
+        <input name="password" type="password" class="form-control" id="inputPassword" required>
+        <div class="invalid-feedback">Please enter your password</div>
+      </div>
+      <div class="col-md-6">
+        <label for="inputCity" class="form-label">City</label>
+        <input name="city" type="text" class="form-control" id="inputCity" required>
+        <div class="invalid-feedback">Please enter your city</div>
+      </div>
+      <div class="col-md-4">
+        <label for="inputState" class="form-label">State</label>
+        <select name="state" id="inputState" class="form-select" required>
+          <option selected>States</option>
+          <option>Bihar</option>
+          <option>Up</option>
+          <option>Delhi</option>
+        </select>
+        <div class="invalid-feedback">Please select your state</div>
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Postel Code</label>
+        <input name="pinCode" type="text" class="form-control" id="inputZip" required>
+        <div class="invalid-feedback">Please enter your Postel code</div>
+      </div>
+      <div class="col-12">
+        <label for="inputAddress" class="form-label">Address</label>
+        <input name="address" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+        <div class="invalid-feedback">Please enter your Address</div>
+      </div>
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary" onclick="x()">Submit</button>
+      </div>
+    </form>
+  </section> 
+
+  <section class="container">
+    <div class="row">
+      {{#each galleryReg}}
+      <dic class="col-md-12">
+        <h3>Hello I am {{this.name}}. I am doing {{this.course}} My email is <b>{{this.email}}</b><br>
+        my address is {{this.address}} {{this.city}}, {{this.state}} and my pin code is {{this.pinCode}}</h3>
+      </dic>
+      {{/each}}
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="/static/JS/script.js"></script>
+</body> 

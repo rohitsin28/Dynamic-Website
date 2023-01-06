@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/CSS/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Dynamic website</title>
+</head>
+
+<body>
+  <marquee behavior="alternate" direction="" class="h-50 py-1"><b> welcome to this page</b></marquee>
+  {{>navbar data=details}}
+  {{>slider slide=slides}}
+
+
+  {{!-- Banner First section --}}
+
+  <section class="banner1_section py-4 background2">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="py-2">Start learning new prestious Machine learning technology</h1>
+            <p class="px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum magnam deserunt et laborum
+              alias odio tempore, inventore ducimus vero minus delectus, velit officia debitis magni necessitatibus ea
+              eos. Cumque, explicabo? Impedit repellat, minus facilis est illum quasi corporis? Modi sequi voluptates
+              adipisci! Quis amet laborum aliquam, minima molestias itaque aliquid.</p>
+            <button class="btn btn-outline-primary">Start Learning</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{!-- Services section --}}
+
+  <section id="services_section" class="py-4">
+    <div class="container">
+      <h1 class="text-center text-secondary">Service that we provide</h1>
+      <div class="row mt-2">
+        {{#each services}}
+        <div class="col-md-4 mt-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="containet text-center">
+                <i class="{{this.icon}} service_icon"></i>
+              </div>
+              <h5 class="card-title">{{this.title}}</h5>
+              <p>{{this.description}}</p>
+              <a href="{{this.link}}">Udemy</a>
+              <a href="{{this.textLink}}" class="mx-4">Go to</a>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+  {{!-- Banner Second section --}}
+
+  <section class="banner2_section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center py-5">
+          {{!-- Left side --}}
+          <h3>I am Rohit Singh</h3>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi quas a et ullam eveniet cum consequuntur possimus culpa numquam, aliquid aliquam corrupti? Quo, quaerat possimus.</p>
+          <button class="btn btn-primary">Click Here</button>
+        </div>
+        <div class="col-md-6 text-center">
+          {{!-- Right side --}}
+          <img src="/static/Images/banner.jpg" alt="" class="bannerImg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{!-- Banner Third section --}}
+  
+  <section class="banner2_section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          {{!-- Right side --}}
+          <img src="/static/Images/banner1.jpg" alt="" class="bannerImg">
+        </div>
+        <div class="col-md-6 text-center py-5">
+          {{!-- Left side --}}
+          <h3>Machine Learning section</h3>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi quas a et ullam eveniet cum consequuntur possimus culpa numquam, aliquid aliquam corrupti? Quo, quaerat possimus.</p>
+          <button class="btn btn-primary">Click Here</button>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  {{!-- contaact us section --}}
+  <section id="contact_us_section" class="py-5 background1">
+    <div class="container">
+      <h3 class="text-center text-muted">Contact us</h3>
+      <div class="row">
+        <div class="col-md-12">
+
+          <form action="/process-contact-form" method="post" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label px-3">Your Email address</label>
+              <input name="email" type="email" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" required>
+                <div class="invalid-feedback">Please enter your email</div>
+              <div id="emailHelp" class="form-text px-3">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="contactNumberField" class="form-label px-3">Enter your number</label>
+              <input name="phone" class="form-control" id="contactNumberField" required>
+              <div class="invalid-feedback">Please enter your Number</div>
+            </div>
+            <div class="form-floating">
+              <textarea name="query" class="form-control" id="textArea" placeholder="Leave a comment here"
+                id="floatingTextarea" required></textarea>
+              <div class="invalid-feedback">Please give me Feedback</div>
+              <label for="floatingTextarea" class="text-dark">Comments</label>
+            </div>
+            <div class="container text-center mt-3">
+              <button type="submit" class="btn btn-dark" onclick="x()">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{{!-- About Section --}}
+
+  <section class="about_section">
+    <div class="container py-3">
+      <div class="row text-center py-3">
+        <div class="col-md-12">
+          <h2>About Section</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, voluptate molestiae rerum enim aut, dolore quam fuga reprehenderit voluptates saepe cumque non cupiditate, doloremque temporibus labore sit! Soluta deleniti voluptas alias animi, fugiat a dicta saepe itaque! Molestias aliquam amet nisi id repudiandae at, dignissimos quia, illo animi eius a.</p>
+          <button class="btn btn-success btn-lg" id="about_btn"> Contact us</button>
+        </div>  
+      </div>
+    </div>
+  </section>
+ 
+{{!-- Footer Section --}}
+
+  <section class="footer_section">
+    <div class="container-fluid pt-3">
+      <div class="row text-center">
+        <div class="col-md-12 bg-dark text-white py-3">
+          @copywright <span>Rohit Singh</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+    <script src="/static/JS/script.js"></script>
+</body>
+
+</html>
